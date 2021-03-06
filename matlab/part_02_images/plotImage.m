@@ -9,8 +9,8 @@ function [imageRGB] = plotImage(imageInput,varargin)
 
 % Input:
 % imageInput - the raw image data, 1 value per pixel
-flagSimpleScaling = false;  % Set to true to use mean / standard deviation scaling
-flagDrawColorbar = true;  % set to true to draw a colorbar
+% flagSimpleScaling = false;  % Set to true to use mean / standard deviation scaling
+flagDrawColorbar = false;  % set to true to draw a colorbar
 
 % Optional inputs
 % 2 element vector [min_value max_value] specifies the relative or abs color range
@@ -70,18 +70,22 @@ for a0 = 1:numInputs
 end
 
 % Default parameters
-if isempty(intRange)
+if isempty(intRange) && ~flagAbsoluteScaling
     intRange = [-1 1]*2;
 end
 if isempty(cmap)
-    cmap = inferno(256);
+%     cmap = inferno(256);
+    cmap = violetFire(256);
 end
 
 % Scale figure
 imageScale = double(real(imageInput));
 if flagAbsoluteScaling == true
+    if isempty(intRange)
+        intRange = [min(imageScale(:)) max(imageScale(:))];
+    end
     imageScale(:) = (imageScale - intRange(1)) / (intRange(2) - intRange(1));
-    
+
 elseif flagOrderedScaling == true
     numberColors = size(cmap,1);
     
@@ -197,7 +201,7 @@ clf
 imagesc(imageRGB)
 axis equal off
 set(gca,'position',[0 0 1 1])
-
+drawnow;
 
 
 if flagDrawColorbar == true && flagOrderedScaling == true
