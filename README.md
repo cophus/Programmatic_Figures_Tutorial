@@ -1,4 +1,4 @@
-# Programmatic_Figures_Tutorial
+# Programmatic Figures and Movies Tutorial
 
 ### Colin Ophus - updated 2021 March
 
