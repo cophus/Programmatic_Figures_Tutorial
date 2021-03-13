@@ -6,7 +6,7 @@ function [] = animOrient01(probeSites)
 %                        with different orientations.
 % 01 - This script renders the scene.
 
-rng(1);
+rng(1);  % set random see for repeatable behaviour
 
 skip = 1;
 flagScatter = 1;
@@ -30,7 +30,8 @@ end
 probeRep = 3;
 
 % appearance
-mSize = 50;
+mSize = 50;% * 4;
+mSizeTint = 10;%*1.5;
 lw = 1;
 radius = 0.48 + 0.04;
 % radius = 0.36;
@@ -43,6 +44,11 @@ cellDim = numAtoms + 0;
 cTar = [0 0 0] + cellDim * 0.5 + [0 -0.6 0];
 cPos = [-3 0 1.5]*36;
 cAngle = 20 + 1;
+% % More dramatic camera angles
+% cellDim = numAtoms + 0;
+% cTar = [0 0 0] + cellDim * 0.5 + [10 5 -15];
+% cPos = [-2.25 1.75 0]*13;
+% cAngle = 75;
 
 
 % Atomic sites
@@ -146,7 +152,8 @@ qMask = q2 < 0.25^2;
 
 
 % Other image stuff
-w2 = hanning(imageSizeOutput(1)) * hanning(imageSizeOutput(2))';
+% w2 = hanning(imageSizeOutput(1)) * hanning(imageSizeOutput(2))';
+w2 = tukeywinMake(imageSizeOutput);
 % xx = 1:imageSizeOutput(1);
 % yy = 1:imageSizeOutput(2);
 % [ya,xa] = meshgrid(
@@ -176,6 +183,7 @@ h = figure(1);
 clf
 set(h,'color','w')
 % set(h,'color','w','outerposition',[1020 380-120 576 512+128])
+% set(h,'color','w','outerposition',[100 100 576+576 512+512])
 hold on
 % sub = p(:,1) < 1.5 - 100*1;
 % Np = size(p,1);
@@ -195,13 +203,13 @@ if flagScatter == true
     d = d / norm(d) * 0.05 + [0 -0.1 0.1];
     
     scatter3(p1(:,2)+d(1),p1(:,1)+d(2),p1(:,3)+d(3),...
-        'marker','o','sizedata',10,'linewidth',lw,...
+        'marker','o','sizedata',mSizeTint,'linewidth',lw,...
         'markerfacecolor',[1 0.8 1],'markeredgecolor','none')
     scatter3(p2(:,2)+d(1),p2(:,1)+d(2),p2(:,3)+d(3),...
-        'marker','o','sizedata',10,'linewidth',lw,...
+        'marker','o','sizedata',mSizeTint,'linewidth',lw,...
         'markerfacecolor',[0.8 1 0.8],'markeredgecolor','none')
     scatter3(p3(:,2)+d(1),p3(:,1)+d(2),p3(:,3)+d(3),...
-        'marker','o','sizedata',10,'linewidth',lw,...
+        'marker','o','sizedata',mSizeTint,'linewidth',lw,...
         'markerfacecolor',[1 0.9 0.9],'markeredgecolor','none')
     
     
