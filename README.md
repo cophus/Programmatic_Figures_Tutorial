@@ -2,7 +2,7 @@
 
 ### Colin Ophus - updated 2021 March
 
-This repo contains the presentation files, codes, and images for the tutorial - "Making figures and movies with code"
+This repo contains the presentation files, codes, and images for programmatic visualization tutorials - this includes examples for image plotting, 3D scatter plots, and physics demonstration movies. There are implementations in both Matlab and Python (matplotlib specifically), and associated powerpoint slides shown below.
 
 [![4DSTEM movie](images/STEM4D_movie04b_export.gif)](https://www.youtube.com/watch?v=2QUFgO5x1OY)
 
