@@ -9,7 +9,7 @@ This repo contains the presentation files, codes, and images for the tutorial - 
 
 ### 2024
 
-[PDF export of the slides ](https://github.com/cophus/Programmatic_Figures_Tutorial/blob/main/Ophus_APS_tutorial_programmatic_figures_v02_export.pdf)
+[PDF export of the slides ](https://github.com/cophus/Programmatic_Figures_Tutorial/blob/main/Ophus_STROBE_programmatic_figures_v01_export.pdf)
 
 [Animated powerpoint slides on Google Drive](https://docs.google.com/presentation/d/1Yk2e2dS7XuHPw7Ga1GtVrdp_a4IC1-t9)
 
